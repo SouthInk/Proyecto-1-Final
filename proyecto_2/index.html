@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <script src="js/login_validation.js"></script>    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
     [class*="col"]{
@@ -16,9 +16,9 @@
     }
     </style>
 </head>
-<body>
+<body onload="setup()">
     
-    
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
     <div class="container-fluid position-absolute bottom-0 start-0 ">
@@ -30,7 +30,7 @@
             
         </div>
         <div class="row g-4" >
-            <div class="col-2 border border-dark border-3 btn-group-vertical">
+            <div class="col-2 border border-dark border-3 btn-group-vertical bg-gradient">
                 <button type = "button" class="btn btn-primary-outline btn-lg">Localización</button>
                 <button type = "button" class="btn btn-primary-outline btn-lg">Caracteristicas</button>
                 <button type = "button" class="btn btn-primary-outline btn-lg">Instalaciones</button>
@@ -39,25 +39,30 @@
                 <button type = "button" class="btn btn-primary-outline btn-lg">Proyectos de la escuela</button>
             </div>
             
-        </div>
+        </div> 
         
         <form class="row g-4" >
-            <div class="col-2 border border-dark border-3" >
+            <div class="col-2 border border-dark border-3 bg-gradient" >
                 <label for="usuario" class="fs-6 fw-bold form-label">Usuario:</label>
                 <input type="text" id="usuario" class="form-control">
                 <label for="contraseña" class="fs-6 fw-bold form-label">Contraseña:</label>
                 <input type="password" id="contraseña" class="form-control">
-                <div class="button"><button type = "button" class="btn btn-dark">Iniciar sesión</button></div>
+                <div class="button"><button type = "button" id="login" class="btn btn-dark" onclick="validInfo()">Iniciar sesión</button></div>
             </div>
             
         </form>
     </div>
 
     <div class="container-fluid position-absolute bottom-50 start-50">
-        <div class="col-1 border border-dark border-3" >
-                ZONA DE CONTENIDO
+        <div class="col-1 border border-dark border-3 bg-gradient" >
+                ZONA DE CONTENIDO   
         </div>
     </div>
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertLogin">
+       <p class="fs-5 fw-bold text-center">Porfavor introduzca un usuario y/o contraseña valido.</p> 
+        <button type="button" class="btn-close" aria-label="Close" onclick="setup()"></button>
+    </div> 
 
 
 
