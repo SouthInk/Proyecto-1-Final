@@ -8,7 +8,7 @@
     <script src="js/login_validation.js"></script>    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
-    [class*="col"]{
+    [class*="color"]{
         padding: 2rem;
         background-color: #605faa;
         border: 3px solid #fff;
@@ -16,49 +16,111 @@
     }
     </style>
 </head>
-<body onload="setup()">
+<body onload="setup()" background= ".\images\background.jpg">
     
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
-    <div class="container-fluid position-absolute bottom-0 start-0 ">
-        <div class="row g-4" >
-            <div class="col-2 border border-dark border-3" >
-                LOGO VA AQUI
+    
 
+    <div class="container">
+
+        <div class="row">
+            <div class="col">
+                <div class="position-absolute bottom-0 start-0">
+
+                    <div class="col-2 border border-dark border-3 color" >
+                        LOGO VA AQUI
+                    </div>
+                    <div class="border border-dark border-3 btn-group-vertical bg-gradient color">
+                        <button type = "button" class="btn btn-primary-outline btn-lg">Localización</button>
+                        <button type = "button" class="btn btn-primary-outline btn-lg">Caracteristicas</button>
+                        <button type = "button" class="btn btn-primary-outline btn-lg">Instalaciones</button>
+                        <button type = "button" class="btn btn-primary-outline btn-lg">Servicios</button>
+                        <button type = "button" class="btn btn-primary-outline btn-lg">Información</button>
+                        <button type = "button" class="btn btn-primary-outline btn-lg">Proyectos de la escuela</button>
+                    </div>
+                    <form>
+                        <div class="border border-dark border-3 bg-gradient color" >
+                            <label for="usuario" class="fs-6 fw-bold form-label text-dark">Usuario:</label>
+                            <input type="text" id="usuario" class="form-control">
+                            <label for="contraseña" class="fs-6 fw-bold form-label text-dark">Contraseña:</label>
+                            <input type="password" id="contraseña" class="form-control">
+                            <div class="button"><button type = "button" id="login" class="btn btn-dark" onclick="validInfo()">Iniciar sesión</button></div>
+                        </div>
+                    </form>
+
+                </div>
+                
             </div>
-            
+            <div class="col-11 d-flex justify-content-center">
+
+                <div class="border border-3 border-dark bg-gradient color ">
+                    <p class="fs-3 text fw-bold text-dark text-center">Bienvenido, Estudiante: Nombre</p>
+                    
+                    <div style="width: 450px;" >
+                        <table class="border border-dark table table-dark table-striped  table-responsive table-hover">
+                            <p class="fs-4 text fw-bold text-dark text-center   ">Horarios</p>
+                            <tr class="table-dark">
+                                <td >Asignatura: <td class="fw-bold">Estudios Sociales</td></td>
+                            </tr>
+                            <tr>
+                                <td>Hora: <td class="fw-bold">10am-12pm</td></td>
+                            </tr>
+                
+                        </table>
+                    </div>   
+                    
+                        <table class="border border-dark table table-dark table-striped table-responsive table-hover">
+                            <p class="fs-4 text fw-bold text-dark text-center ">Faltas de asistencia</p>
+                            <tr>
+                                <td>Asignatura:<td class="fw-bold">Español</td></td>
+                            </tr>
+                            <tr>
+                                <td>Fecha: <td class="fw-bold">18/5/2022</td></td>
+                            </tr>
+                            <tr>
+                                <td>Justificada <td class="fw-bold">No.</td></td>
+                            </tr>
+                        </table>
+
+                        <table class="border border-dark table table-dark table-striped table-responsive table-hover">
+                            <p class="fs-4 text fw-bold text-dark text-center ">Profesores</p>
+                            <tr>
+                                <td>Nombre del profesor: <td class="fw-bold">Roberto</td></td>
+                            </tr>
+                            <tr>
+                                <td>Asignatura: <td class="fw-bold">Matematicas</td></td>
+                            </tr>
+                        </table>
+                        <table class="border border-dark table table-dark table-striped table-responsive table-hover">
+                            <p class="fs-4 text fw-bold text-dark text-center ">Notas</p>
+                        <tr>
+                            <td>Asignatura: <td class="fw-bold">Español</td></td>
+                        </tr>
+                        <tr>
+                            <td>Trimestre I <td class="fw-bold">92</td></td>
+                        </tr>
+                        <tr>
+                            <td>Trimestre II <td class="fw-bold">80</td></td>
+                        </tr>
+                        <tr>
+                            <td>Trimestre III  <td class="fw-bold">100</td></td>
+                        </tr>
+                        </table>
+                        
+                        
+                    
+                </div>
+
+                
+            </div>
         </div>
-        <div class="row g-4" >
-            <div class="col-2 border border-dark border-3 btn-group-vertical bg-gradient">
-                <button type = "button" class="btn btn-primary-outline btn-lg">Localización</button>
-                <button type = "button" class="btn btn-primary-outline btn-lg">Caracteristicas</button>
-                <button type = "button" class="btn btn-primary-outline btn-lg">Instalaciones</button>
-                <button type = "button" class="btn btn-primary-outline btn-lg">Servicios</button>
-                <button type = "button" class="btn btn-primary-outline btn-lg">Información</button>
-                <button type = "button" class="btn btn-primary-outline btn-lg">Proyectos de la escuela</button>
-            </div>
-            
-        </div> 
-        
-        <form class="row g-4" >
-            <div class="col-2 border border-dark border-3 bg-gradient" >
-                <label for="usuario" class="fs-6 fw-bold form-label">Usuario:</label>
-                <input type="text" id="usuario" class="form-control">
-                <label for="contraseña" class="fs-6 fw-bold form-label">Contraseña:</label>
-                <input type="password" id="contraseña" class="form-control">
-                <div class="button"><button type = "button" id="login" class="btn btn-dark" onclick="validInfo()">Iniciar sesión</button></div>
-            </div>
-            
-        </form>
-    </div>
 
-    <div class="container-fluid position-absolute bottom-50 start-50">
-        <div class="col-1 border border-dark border-3 bg-gradient" >
-                ZONA DE CONTENIDO   
-        </div>
     </div>
+    
 
+    
     <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertLogin">
        <p class="fs-5 fw-bold text-center">Porfavor introduzca un usuario y/o contraseña valido.</p> 
         <button type="button" class="btn-close" aria-label="Close" onclick="setup()"></button>
