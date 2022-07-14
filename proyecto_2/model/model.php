@@ -23,14 +23,41 @@ private static $instance = null;
         $this->ins_conexion = conexion::getInstance();
         $this->obj_conexion = $this->ins_conexion->conectar();
         $sql = "SELECT id_alumno,nivel_id,login_alumno,clave_alumno,nombre_alumno,apellidos_alumno FROM alumno";
-        $sql .= " WHERE login_alumno='$usu' AND clave_alumno='$pass'";
+        $sql .= " WHERE login_alumno='$usu' AND clave_alumno=md5('$pass')";
         $rs = $this->obj_conexion->query($sql); 
        
         $this->ins_conexion->desconectar();
         return $rs;
     }
+
+    function get_grados(){
+      $this->ins_conexion = conexion::getInstance();
+      $this->obj_conexion = $this->ins_conexion->conectar();
+
+      $sql = "SELECT id_nivel,nivel,nivel_curso,nivel_aula FROM nivel";
+      $rs = $this->obj_conexion->query($sql);
+        
+        $this->ins_conexion->desconectar();
+        return $rs;
+
+    }
+    
+    function insert_usuario($grado,$usuario,$pass,$nombre,$apellidos){
+
+      $this->ins_conexion = conexion::getInstance();
+      $this->obj_conexion = $this->ins_conexion->conectar();
+      $sql = "insert into alumno(nivel_id,login_alumno,clave_alumno,nombre_alumno,apellidos_alumno)";
+      $sql .= " values('$grado','$usuario',md5('$pass'),'$nombre','$apellidos')";
+      $rs = $this->obj_conexion->query($sql);
+      $this->ins_conexion->desconectar();
+      return $rs;
+
+  }
+   
+
+
     function del_usuario(){}
-    function insert_usuario(){}
+    
     function upd_usuario(){}
     function select_usuario(){}
 
