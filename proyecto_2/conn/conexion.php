@@ -27,7 +27,7 @@ class conexion{
         $this->user = "root";
         $this->pass = "";
     }
-
+    
     function conectar(){
         $this->conn = mysqli_connect($this->host,$this->user,$this->pass,$this->db_name = "bd_colegio");
         if (!$this->conn) {
