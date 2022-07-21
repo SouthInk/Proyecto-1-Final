@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-07 19:47:02
+/* Smarty version 4.1.1, created on 2022-07-13 23:19:24
   from 'C:\Users\Gabriel\Documents\Universidad Documentos\XAMPP\htdocs\progra3\proyecto_2\view\templates\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62c71c16c366b6_90990871',
+  'unifunc' => 'content_62cf36dc040419_11416957',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1728b5b2163dec467f040bc4a582e3881bb1dab5' => 
     array (
       0 => 'C:\\Users\\Gabriel\\Documents\\Universidad Documentos\\XAMPP\\htdocs\\progra3\\proyecto_2\\view\\templates\\index.tpl',
-      1 => 1657216017,
+      1 => 1657747160,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62c71c16c366b6_90990871 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62cf36dc040419_11416957 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,17 +34,13 @@ function content_62c71c16c366b6_90990871 (Smarty_Internal_Template $_smarty_tpl)
 >    
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body onload="setup()" background= ".\images\background.jpg">
+<body background= ".\images\background.jpg">
     
 
 
     <h1 class= "text-center"><?php echo $_smarty_tpl->tpl_vars['msg']->value;?>
 </h1>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertLogin">
-       <p class="fs-5 fw-bold text-center"><?php echo $_smarty_tpl->tpl_vars['msg']->value;?>
-</p> 
-        <button type="button" class="btn-close" aria-label="Close" onclick="setup()"></button>
-    </div> 
+ 
 
     <div class="container">
 
@@ -64,13 +60,21 @@ function content_62c71c16c366b6_90990871 (Smarty_Internal_Template $_smarty_tpl)
                         <button type = "button" class="btn btn-primary-outline btn-lg">Proyectos de la escuela</button>
                     </div>
                     <form>
-                        <input type ="hidden" name = "action" value = "login">
+                        
                         <div class="border border-dark border-3 bg-gradient color" >
-                            <label for="usuario" class="fs-6 fw-bold form-label text-dark">Usuario:</label>
-                            <input type="text" name="txtUsuario" class="form-control">
-                            <label for="contraseña" class="fs-6 fw-bold form-label text-dark">Contraseña:</label>
-                            <input type="password" name="txtPass" class="form-control">
-                            <div class="button"><button type = "submit"  value="Iniciar sesión" class="btn btn-dark" onclick="validInfo()">Iniciar sesión</button></div>
+                            <input type ="hidden" name = "action" value = "login">
+                           <table border = 0>
+                        <tr>
+                            <td class="fs-4 fw-bold form-label p-2">Usuario: </td>
+                             <td><input type="text" name="txtUsuario" class = "form-control" required></td>
+                        </tr>
+                        <tr>
+                        <td class="fs-4 fw-bold form-label p-2">Contraseña: </td>
+                         <td><input type="password" name="txtPass" class = "form-control" required></td>
+                     </tr>
+                      </table>
+      
+                        <div class = "btn btn-dark"><input type="submit" value="Iniciar sesión" class = "btn btn-light"></div>
                             <div class = "text-center fs-4"><a href = "index.php?action=abrir_registro" class= "link-light">¿Nuevo usuario?</a></div>
                         </div>
                     </form>
