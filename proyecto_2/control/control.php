@@ -36,7 +36,12 @@ private static $instance = null;
 
         if (!isset($_REQUEST['action'])) {
           if (isset($_SESSION['USUARIO'])) {
-            echo "Usuario correct, mostrar ventana principal";
+            $this->smarty->setAssign("id",$_SESSION['ID']);
+            $this->smarty->setDisplay("header.tpl");
+            $this->smarty->setDisplay("menu.tpl");
+            $this->smarty->setDisplay("body_1.tpl");
+            $this->smarty->setDisplay("footer.tpl");
+            
             $this->validarInactividad();
             //$this->ventana_principal();
           }else{
@@ -105,21 +110,31 @@ private static $instance = null;
         $pass = $_REQUEST['txtPass'];
         $rs = $this->objModel->val_login($usu,$pass);
         $flag = 0;
-        $rol = 0;
-        
+        $nivel = 0;
+        $id = 0;
         while ($fila = $rs->fetch_assoc()) {
-            echo "Nombre: ".$fila['nombre_alumno'];
-            $rol = $fila['nivel_id'];
+            //echo "Nombre: ".$fila['nombre_alumno'];
+            $nivel = $fila['nivel_id'];
+            $id = $fila['id_alumno'];
             $flag = 1;
         
         }
        
         
         if ($flag == 1) {
-          echo "Usuario correcto";
+          
           $_SESSION['USUARIO'] = $usu;
-          $_SESSION['ROL'] = $rol;
-          $this->smarty->setAssign("msg","logeo correcto.");
+          $_SESSION['NIVEL'] = $nivel;
+          $_SESSION['ID'] = $id;
+        
+          $this->smarty->setAssign("id",$_SESSION['ID']);
+            $this->smarty->setDisplay("header.tpl");
+            $this->smarty->setDisplay("menu.tpl");
+            $this->smarty->setDisplay("body_1.tpl");
+            $this->smarty->setDisplay("footer.tpl");
+            
+          
+         
         }else {
           $this->smarty->setAssign("msg","Error");
           $this->smarty->setAssign("titulo","POS UH");
@@ -157,7 +172,7 @@ private static $instance = null;
         if(isset($_SESSION['tiempo']) ) {
       
             //Tiempo en segundos para dar vida a la sesión.
-            $inactivo = 1;//20min en este caso.
+            $inactivo = 1900;//20min en este caso.
       
             //Calculamos tiempo de vida inactivo.
             $vida_session = time() - $_SESSION['tiempo'];
