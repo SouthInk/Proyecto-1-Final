@@ -51,3 +51,41 @@ function fn_consumir_ws_getMaterias(){
       });
 
   }
+
+  function fn_consumir_ws_getFaltasAsistencia(){
+    $.ajax({
+        type: "GET",
+        url: 'http://localhost/progra3/proyecto_2/ws/ws_alumnos.php?idmateria='+idmateria+"&accion=accion2&idalumno="+idalumno,
+        success: function(data) {
+          
+            $("#divFaltas").html('');
+            $("#divFaltas").html(data);
+            
+        },
+        error: function(error) {
+
+            $("#divFaltas").html('<div class="alert alert-warning" role="alert">Error cargando datos del WS</div>');
+
+        }
+      });
+
+  }
+
+  function fn_consumir_ws_getHorarios(){
+    $.ajax({
+        type: "GET",
+        url: 'http://localhost/progra3/proyecto_2/ws/ws_alumnos.php?idmateria='+idmateria+"&accion=accion2",
+        success: function(data) {
+          
+            $("#divHorarios").html('');
+            $("#divHorarios").html(data);
+            
+        },
+        error: function(error) {
+
+            $("#divHorarios").html('<div class="alert alert-warning" role="alert">Error cargando datos del WS</div>');
+
+        }
+      });
+
+  }
