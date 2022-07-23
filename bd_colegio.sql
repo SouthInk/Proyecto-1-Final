@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2022 at 01:28 AM
+-- Generation Time: Jul 23, 2022 at 03:10 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -30,9 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `administrador` (
   `id_admin` int(11) NOT NULL,
   `login_admin` varchar(30) NOT NULL,
-  `clave_admin` varchar(20) NOT NULL,
+  `clave_admin` varchar(300) NOT NULL,
   `email_admin` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `administrador`
+--
+
+INSERT INTO `administrador` (`id_admin`, `login_admin`, `clave_admin`, `email_admin`) VALUES
+(3, 'adminUH', '827ccb0eea8a706c4c34a16891f84e7b', 'adminh@hotmail.com');
 
 -- --------------------------------------------------------
 
@@ -57,7 +64,7 @@ INSERT INTO `alumno` (`id_alumno`, `nivel_id`, `login_alumno`, `clave_alumno`, `
 (17, 1, 'test4', '81dc9bdb52d04dc20036dbd8313ed055', 'gabriel ', 'Reyes'),
 (19, 1, 'gag', '81dc9bdb52d04dc20036dbd8313ed055', 'asd', 'asd'),
 (20, 1, 'gag', '81dc9bdb52d04dc20036dbd8313ed055', 'asd', 'asd'),
-(21, 1, 'Noemy', '81dc9bdb52d04dc20036dbd8313ed055', 'Noemy', 'Ulloa');
+(21, 1, 'test5', '81dc9bdb52d04dc20036dbd8313ed055', 'Test555', 'Test5');
 
 -- --------------------------------------------------------
 
@@ -99,12 +106,8 @@ CREATE TABLE `asignatura_has_alumno` (
 --
 
 INSERT INTO `asignatura_has_alumno` (`asignatura_id`, `alumno_id`, `id_notaAha`) VALUES
-(1, 17, 0),
-(1, 17, 1),
 (1, 17, 1),
 (2, 21, 60),
-(2, 21, 60),
-(3, 17, 3),
 (3, 17, 3);
 
 -- --------------------------------------------------------
@@ -121,6 +124,14 @@ CREATE TABLE `falta_asistencia` (
   `justificada` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `falta_asistencia`
+--
+
+INSERT INTO `falta_asistencia` (`id_falAsistencia`, `alumno_id`, `asignatura_id`, `fecha_falAsistencia`, `justificada`) VALUES
+(1, 17, 1, '2022-07-04', 'No'),
+(3, 17, 3, '2022-07-13', 'Si');
+
 -- --------------------------------------------------------
 
 --
@@ -134,6 +145,15 @@ CREATE TABLE `horario` (
   `dia_horaInicio` varchar(25) NOT NULL,
   `dia_horaFin` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `horario`
+--
+
+INSERT INTO `horario` (`id_horario`, `asignatura_id`, `dia_horario`, `dia_horaInicio`, `dia_horaFin`) VALUES
+(1, 1, 'Miercoles', '1:00 PM', '3:00 PM'),
+(3, 1, 'Lunes', '7:00 PM', '9:00 PM'),
+(5, 3, 'Jueves', '1:00 PM', '2:00 PM');
 
 -- --------------------------------------------------------
 
@@ -177,13 +197,9 @@ CREATE TABLE `nota` (
 --
 
 INSERT INTO `nota` (`id_nota`, `aha_alumno_id`, `aha_asignatura_id`, `trimestre_nota`, `nota`) VALUES
-(1, 17, 1, 1, '50'),
-(3, 21, 2, 1, '90'),
-(5, 17, 1, 2, '100'),
-(7, 17, 2, 3, '15'),
-(8, 17, 1, 3, '45'),
-(10, 17, 3, 1, '100'),
-(11, 17, 3, 1, '100');
+(20, 17, 1, 3, '90'),
+(22, 17, 1, 2, '40'),
+(24, 17, 1, 1, '100');
 
 -- --------------------------------------------------------
 
@@ -238,6 +254,7 @@ ALTER TABLE `asignatura`
 -- Indexes for table `asignatura_has_alumno`
 --
 ALTER TABLE `asignatura_has_alumno`
+  ADD PRIMARY KEY (`asignatura_id`,`alumno_id`),
   ADD KEY `asignatura_id` (`asignatura_id`,`alumno_id`),
   ADD KEY `alumno_id` (`alumno_id`);
 
@@ -284,7 +301,7 @@ ALTER TABLE `profesor`
 -- AUTO_INCREMENT for table `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `alumno`
@@ -302,13 +319,13 @@ ALTER TABLE `asignatura`
 -- AUTO_INCREMENT for table `falta_asistencia`
 --
 ALTER TABLE `falta_asistencia`
-  MODIFY `id_falAsistencia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_falAsistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `horario`
 --
 ALTER TABLE `horario`
-  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `nivel`
@@ -320,7 +337,7 @@ ALTER TABLE `nivel`
 -- AUTO_INCREMENT for table `nota`
 --
 ALTER TABLE `nota`
-  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `profesor`
