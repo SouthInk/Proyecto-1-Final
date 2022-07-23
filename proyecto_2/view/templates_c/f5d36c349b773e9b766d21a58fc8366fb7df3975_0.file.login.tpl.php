@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-07-21 17:44:26
+/* Smarty version 4.1.1, created on 2022-07-23 00:17:07
   from 'C:\Users\Gabriel\Documents\Universidad Documentos\XAMPP\htdocs\progra3\proyecto_2\view\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62d9745a7751e8_39689197',
+  'unifunc' => 'content_62db21e3988f66_02545131',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f5d36c349b773e9b766d21a58fc8366fb7df3975' => 
     array (
       0 => 'C:\\Users\\Gabriel\\Documents\\Universidad Documentos\\XAMPP\\htdocs\\progra3\\proyecto_2\\view\\templates\\login.tpl',
-      1 => 1658415530,
+      1 => 1658528225,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62d9745a7751e8_39689197 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62db21e3988f66_02545131 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +61,7 @@ function content_62d9745a7751e8_39689197 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                     <form action="index.php" method="post">
                         <input type ="hidden" name = "action" value = "login">
-                        <div class="border border-dark border-3 bg-gradient color" >
+                        <div class="border border-dark border-3 bg-gradient color">
                             <input type ="hidden" name = "action" value = "login">
                           <label for="usuario" class="fs-6 fw-bold form-label text-dark">Usuario:</label>
                             <input type="text" name="txtUsuario" class="form-control">
@@ -69,8 +69,12 @@ function content_62d9745a7751e8_39689197 (Smarty_Internal_Template $_smarty_tpl)
                             <input type="password" name="txtPass" class="form-control">
                             <div class="button"><button type = "submit"  value="Iniciar sesión" class="btn btn-dark" >Iniciar sesión</button></div>
                             <div class = "text-center fs-4"><a href = "index.php?action=abrir_registro" class= "link-light">¿Nuevo usuario?</a></div>
-                           
-                            
+                            <p class='fs-4 text fw-bold text-dark text-center '>Iniciar sesión como:</p>
+                            <select name="tipoLogin" id="tipoLogin" class="form-select">
+                                <option value="alumno">Alumno</option>
+                                <option value="admin">Administrador</option>
+                                <option value="profesor">Profesor</option>
+                            </select>
                         </div>
                     </form>
 

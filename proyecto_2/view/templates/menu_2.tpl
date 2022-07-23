@@ -14,7 +14,7 @@
     </div>
     </nav>
     <div>
-        <p class="fs-3 text fw-bold text-light text-center">Bienvenido, {$nombre}</p>
+        <p class="fs-3 text fw-bold text-light text-center">Bienvenido Admin</p>
     </div>
     
 </body>

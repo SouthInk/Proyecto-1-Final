@@ -34,7 +34,7 @@
                     </div>
                     <form action="index.php" method="post">
                         <input type ="hidden" name = "action" value = "login">
-                        <div class="border border-dark border-3 bg-gradient color" >
+                        <div class="border border-dark border-3 bg-gradient color">
                             <input type ="hidden" name = "action" value = "login">
                           <label for="usuario" class="fs-6 fw-bold form-label text-dark">Usuario:</label>
                             <input type="text" name="txtUsuario" class="form-control">
@@ -42,8 +42,12 @@
                             <input type="password" name="txtPass" class="form-control">
                             <div class="button"><button type = "submit"  value="Iniciar sesión" class="btn btn-dark" >Iniciar sesión</button></div>
                             <div class = "text-center fs-4"><a href = "index.php?action=abrir_registro" class= "link-light">¿Nuevo usuario?</a></div>
-                           
-                            
+                            <p class='fs-4 text fw-bold text-dark text-center '>Iniciar sesión como:</p>
+                            <select name="tipoLogin" id="tipoLogin" class="form-select">
+                                <option value="alumno">Alumno</option>
+                                <option value="admin">Administrador</option>
+                                <option value="profesor">Profesor</option>
+                            </select>
                         </div>
                     </form>
 
