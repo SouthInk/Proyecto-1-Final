@@ -36,6 +36,7 @@ private static $instance = null;
 
         if (!isset($_REQUEST['action'])) {
           if (isset($_SESSION['USUARIO'])) {
+            $this->smarty->setAssign("nombre",$nombre);
             $this->smarty->setAssign("id",$_SESSION['ID']);
             $this->smarty->setDisplay("header.tpl");
             $this->smarty->setDisplay("menu.tpl");
@@ -108,14 +109,23 @@ private static $instance = null;
       function procesar_login(){
         $usu = $_REQUEST['txtUsuario'];
         $pass = $_REQUEST['txtPass'];
-        $rs = $this->objModel->val_login($usu,$pass);
+        $logintype = $_REQUEST['tipoLogin'];
+        
+        $rs = $this->objModel->val_login($usu,$pass,$logintype);
         $flag = 0;
         $nivel = 0;
         $id = 0;
         while ($fila = $rs->fetch_assoc()) {
             //echo "Nombre: ".$fila['nombre_alumno'];
-            $nivel = $fila['nivel_id'];
-            $id = $fila['id_alumno'];
+            if($logintype == "alumno"){
+              $nivel = $fila['nivel_id'];
+              $id = $fila['id_alumno'];
+              $nombre = $fila['nombre_alumno'];
+            }
+            else if($logintype == "admin"){
+
+            }
+
             $flag = 1;
         
         }
@@ -126,11 +136,18 @@ private static $instance = null;
           $_SESSION['USUARIO'] = $usu;
           $_SESSION['NIVEL'] = $nivel;
           $_SESSION['ID'] = $id;
-        
+          $_SESSION['nombre'] = $nombre;
+          $this->smarty->setAssign("nombre",$nombre);
           $this->smarty->setAssign("id",$_SESSION['ID']);
             $this->smarty->setDisplay("header.tpl");
-            $this->smarty->setDisplay("menu.tpl");
+            if($logintype == "alumno"){
+              $this->smarty->setDisplay("menu.tpl");
             $this->smarty->setDisplay("body_1.tpl");
+            }
+            else if($logintype == "admin"){
+              $this->smarty->setDisplay("menu_2.tpl");
+            $this->smarty->setDisplay("body_1.tpl");
+            }
             $this->smarty->setDisplay("footer.tpl");
             
           
